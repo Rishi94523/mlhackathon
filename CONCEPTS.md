@@ -143,68 +143,50 @@ HMM Analysis:
 - Top predictions: E(18%), A(15%), O(12%), I(10%), S(9%)
 
 Agent Guesses: E
-Result: _____ (wrong! No 'E' in APPLE)
-Lives: 5 remaining
+Result: ____E ✅ (E is in APPLE!)
+Lives: 6 remaining
 ```
 
-#### **Turn 2: `_____` (but E is wrong)**
+#### **Turn 2: `____E`**
 ```
-Pattern: 5-letter word, NOT containing E
+Pattern: 5-letter word ending in E
 HMM RECALCULATES:
-- Filters out words with 'E'
-- Remaining words: SHIRT, PRINT, TRUCK, SOLID...
-- Top predictions: A(22%), I(18%), O(15%), T(12%)
+- Matches words ending in 'E': APPLE, ANKLE, ANGLE, TABLE...
+- Top predictions: A(25%), L(20%), P(15%), N(12%)
 
 Agent Guesses: A
-Result: A____ ✅
-Lives: 5 remaining
+Result: A___E ✅
+Lives: 6 remaining
 ```
 
-#### **Turn 3: `A____`**
+#### **Turn 3: `A___E`**
 ```
-Pattern: Starts with 'A', 5 letters, no 'E'
+Pattern: Starts with 'A', ends with 'E', 5 letters
 HMM RECALCULATES AGAIN:
-- Matches: ABORT, ADMIN, APART, APPLY...
-- Position 2-5 analysis:
-  * After 'A': B(15%), P(25%), D(12%)...
-- Top predictions: P(30%), B(18%), D(15%)
+- Matches: APPLE, ANKLE, ANGLE, ABUSE, ACUTE...
+- Pattern "A___E" is specific!
+- Position 2-4 analysis:
+  * After 'A': B(15%), P(30%), N(18%)...
+- Top predictions: P(35%), N(20%), B(15%)
 
 Agent Guesses: P
-Result: APP__ ✅
-Lives: 5 remaining
+Result: APP_E ✅
+Lives: 6 remaining
 ```
 
-#### **Turn 4: `APP__`**
+#### **Turn 4: `APP_E`**
 ```
-Pattern: APP__, 5 letters
+Pattern: APP_E, 5 letters
 HMM RECALCULATES:
-- Vocabulary match: Only APPLE, APPLY, APPEL...
-- Pattern "APP" is very specific!
-- Letter frequencies in blanks:
-  * Position 4: L(70%), A(15%), R(10%)
-  * Position 5: Y(50%), E(40%), S(5%)
-- Top predictions: L(60%), Y(25%), E(10%)
+- Vocabulary match: Only APPLE matches!
+- Pattern "APP_E" is VERY specific!
+- Letter frequency in blank position 4:
+  * L(100%) - only APPLE fits!
+- Top prediction: L(100%)
 
 Agent Guesses: L
-Result: APPL_ ✅
-Lives: 5 remaining
-```
-
-#### **Turn 5: `APPL_`**
-```
-Pattern: APPL_, 5 letters
-HMM RECALCULATES:
-- Vocabulary match: APPLE, APPLY
-- Last letter analysis:
-  * E(50%), Y(50%)
-- Remember: 'E' was guessed Turn 1 (wrong!)
-- HMM knows: Either word had E or doesn't
-
-Agent Guesses: Y (trying other option)
-Result: APPL_ (wrong! It's APPLE)
-Lives: 4 remaining
-
-Turn 6: Agent guesses E again → ⚠️ REPEATED GUESS penalty!
+Result: APPLE ✅ WIN!
+Lives: 6 remaining
 ```
 
 ---
