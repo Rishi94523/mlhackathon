@@ -1,6 +1,6 @@
 # 🎯 Hangman AI: Bidirectional HMM + Reinforcement Learning
 
-An intelligent Hangman solver combining **Bidirectional Hidden Markov Models** with **Q-Learning Reinforcement Learning** to achieve 70%+ accuracy.
+An intelligent Hangman solver combining **Bidirectional Hidden Markov Models** with **Deep Q-Learning Reinforcement Learning** to achieve 70%+ accuracy.
 
 ## 🚀 Quick Start
 
@@ -87,6 +87,8 @@ Turn 4: APP__ → Recalculate! → Guess 'L'
 
 - `final_hmm_rl.py` - Main HMM+RL implementation
 - `hangman_env.py` - Game environment
+- `hackman.ipynb` - Entire Hackman project submission
+- `Analysis Report.pdf` - Report outlining the submission details
 - `corpus.txt` - Training corpus (50,000 words)
 - `test.txt` - Test set (2,000 words)
 
@@ -144,11 +146,14 @@ This is a hackathon project demonstrating the power of combining classical NLP (
 
 ## 📝 License
 
-MIT License
+This project was made for academic/hackathon purposes.
 
 ## 👤 Author
 
-ML Hackathon 2 - Bidirectional HMM Project
+Raihan Naeem
+Prem M Thakur
+Rishi DV
+Noel George Jose
 
 ---
 
